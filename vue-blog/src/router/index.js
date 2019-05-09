@@ -14,13 +14,21 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home,
+      meta: {
+        index: 0,
+        showContent: true,
+      },
       children: [
         {
           path: '/contact',
           name: 'contact',
           components: {
             mainContent: Contact
-          }
+          },
+          meta: {
+            index: 1,
+            showContent: false,
+          },
         },
       ]
     },

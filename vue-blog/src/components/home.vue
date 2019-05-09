@@ -24,8 +24,8 @@
 <script>
 import Header from "./header";
 import Aside from "./aside";
-import Footer from "./footer";
 import Main from "./main";
+import Footer from "./footer";
 
 export default {
   data() {
@@ -34,8 +34,8 @@ export default {
   components: {
     myheader: Header,
     myAside: Aside,
+    myMain: Main,
     myFooter: Footer,
-    myMain: Main
   }
 };
 </script>

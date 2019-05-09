@@ -2,7 +2,7 @@
   <el-row>
     <el-col :span="24">
       <div class="title">
-        <h1 v-text="name"></h1>
+        <h1 v-text="name" @click="()=>{$router.push('/')}"></h1>
         <h3 v-text="subTitle"></h3>
       </div>
     </el-col>
@@ -40,6 +40,12 @@ export default {
   font-size: 2.5em;
   font-weight: bold;
   color: #303133;
+  transition: all 1.5s ease;
+  cursor: pointer;
+}
+.title h1:hover{
+  color: #171766;
+  padding-left: 120px;
 }
 .title h3 {
   text-indent: 2.5em;
