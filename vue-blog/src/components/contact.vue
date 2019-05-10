@@ -6,7 +6,7 @@
     <p>穷在闹市无人问，富在深山有远亲</p>
     <ol>
       <li>我叫余水生</li>
-      <li>一名前端工程师实习生</li>
+      <li>一名工程师实习生</li>
       <li>19884189676</li>
     </ol>
     <div class="content">
@@ -87,6 +87,7 @@ export default {
   transition: box-shadow 1.5s, -webkit-box-shadow 1.2s;
 }
 .contact-box p:nth-of-type(2) {
+  font-size: 20px;
   font-weight: 600;
   text-align: center;
   padding: 20px;

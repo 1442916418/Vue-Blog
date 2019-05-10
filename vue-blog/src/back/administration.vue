@@ -4,20 +4,20 @@
       <RearHeader></RearHeader>
     </el-header>
     <el-row>
-      <el-col :xs="24" :sm="6" :md="6" :lg="6" :xl="6">
+      <el-col :xs="24" :sm="5" :md="5" :lg="5" :xl="5">
         <el-aside class="aside" width="100%">
           <RearAside></RearAside>
         </el-aside>
       </el-col>
-      <el-col :xs="24" :sm="18" :md="18" :lg="18" :xl="18">
+      <el-col :xs="24" :sm="19" :md="19" :lg="19" :xl="19">
         <el-main class="main">
           <RearMain></RearMain>
         </el-main>
       </el-col>
     </el-row>
-    <el-footer class="footer">
+    <!-- <el-footer class="footer">
       <RearFooter></RearFooter>
-    </el-footer>
+    </el-footer> -->
   </el-container>
 </template>
 
