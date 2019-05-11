@@ -45,16 +45,6 @@ export default {
   height: 55px;
 }
 /* 页眉 */
-.header {
-  background-color: rgb(241, 241, 241);
-  width: 100%;
-  height: 55px;
-  line-height: 55px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
-}
 .logo {
   width: 100px;
   height: 40px;

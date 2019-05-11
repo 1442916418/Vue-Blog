@@ -4,7 +4,10 @@ import Home from '@/components/home'
 import Contact from '@/components/contact'
 
 import Administration from '@/back/administration'
-import InformalEssay from '@/back/informalEssay'
+import Main from '@/back/main'
+import ArticleMan from '@/back/article/articleManageMent'
+import AddArticle from '@/back/article/addArticle'
+import UpdateArticle from '@/back/article/updateArticle'
 
 import RearLogin from '@/components/rearLogin'
 import RearRegister from '@/components/rearRegister'
@@ -40,7 +43,37 @@ export default new Router({
       name: 'administration',
       components: {
         adminContent: Administration
-      }
+      },
+      children: [
+        {
+          path: '/main',  // 后台首页main部分
+          name: 'main',
+          components: {
+            rearMain: Main
+          }
+        },
+        {
+          path: '/articleMan',  // 后台文章管理页面
+          name: 'articleMan',
+          components: {
+            rearMain: ArticleMan
+          }
+        },
+        {
+          path: '/addArticle',   // 后台新增文章页面
+          name: 'addArticle',
+          components: {
+            rearMain: AddArticle
+          }
+        },
+        {
+          path: '/updateArticle/:id',   // 后天修改文章页面
+          name: 'updataArticle',
+          components: {
+            rearMain: UpdateArticle
+          }
+        }
+      ]
     },
     {
       path: '/rearLogin',   // 后台登录页面

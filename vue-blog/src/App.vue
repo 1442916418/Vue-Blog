@@ -17,10 +17,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: rgb(44, 44, 44);
-  overflow: hidden;
-  background-image: url("/static/images/back.jpg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;    
+  overflow-x: hidden; 
 }
 </style>

@@ -48,7 +48,7 @@ export default {
       this.$http
         .get("http://127.0.0.1:1111/cgi-bin/userInfo_select_all.py")
         .then(resp => {
-          console.log(resp);
+          // console.log(resp);
           sessionStorage.setItem("name", resp.data[0].name);
           sessionStorage.setItem("subTitle", resp.data[0].subTitle);
 

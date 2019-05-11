@@ -81,9 +81,9 @@ export default {
 .back-box {
   background-image: url("../assets/rearBackground.jpg");
   background-size: 100% 100%;
-  position: fixed;
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 .form {
   width: 20%;

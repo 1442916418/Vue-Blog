@@ -4,7 +4,7 @@
       <p>
         <span v-html="list.title"></span>
       </p>
-      <p v-html="list.content"></p>
+      <p v-text="list.content"></p>
       <p>
         <span v-html="list.releaseTime"></span>
         <span>
@@ -31,7 +31,7 @@ export default {
       this.$http
         .get("http://127.0.0.1:1111/cgi-bin/article_all.py")
         .then(resp => {
-          console.log(resp);
+          // console.log(resp);
           this.list = resp.data
         })
         .catch(error => {
@@ -44,26 +44,28 @@ export default {
 
 <style scoped>
 .list-item {
-  padding: 10px;
+  padding: 15px;
   border: none;
   border-bottom: 1px dashed #ccc;
   color: black;
-  transition: all 0.5s linear;
+  transition: all 0.3s linear;
 }
 .list-item:hover {
-  margin: -10px;
-  border-bottom: none;
+  /* margin: -10px; */
+  padding: 0;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
-  transition: all 0.5s linear;
+  transition: all 0.3s linear;
 }
 .list-item p:first-of-type {
   padding: 10px;
   text-align: left;
   font-weight: 600;
+  color: #17233d;
 }
 .list-item p:nth-of-type(2) {
   padding: 10px;
+  color: #515a6e;
 }
 .list-item p:last-of-type {
   padding: 10px;
