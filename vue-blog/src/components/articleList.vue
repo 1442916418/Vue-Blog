@@ -1,6 +1,6 @@
 <template>
   <div class="articleList-box">
-    <div class="list-item" v-for="(list, index) in list" :key="index">
+    <div class="list-item" v-for="(list, index) in list" :key="index" @click="detailsPage(list.id)">
       <p>
         <span v-html="list.title"></span>
       </p>
@@ -13,6 +13,17 @@
         </span>
       </p>
     </div>
+
+    <div class="list-item-page">
+      <Page
+        :total="listPage.countTotal"
+        :page-size="listPage.pageSize"
+        @on-change="tabData"
+        show-elevator
+        show-total
+        v-show="listPage.length != 0"
+      />
+    </div>
   </div>
 </template>
 
@@ -20,19 +31,49 @@
 export default {
   data() {
     return {
-      list: []
+      list: [],
+      listPage: []
     };
   },
   mounted() {
-    this.getArticle();
+    this.getArticle(1);
   },
   methods: {
-    getArticle() {
+    // 点击跳转详情页面
+    detailsPage(id) {
+      console.log(id);
+      this.$router.push({
+        name: "articleDetails",
+        params: {
+          id: id
+        }
+      });
+    },
+    // 分页
+    tabData(e) {
+      this.getArticle(e);
+    },
+    // 初始化获取数据
+    getArticle(pageNum) {
       this.$http
-        .get("http://127.0.0.1:1111/cgi-bin/article_all.py")
+        .post(
+          "http://127.0.0.1:1111/cgi-bin/article_select_all_page.py",
+          {
+            pageNum: pageNum,
+            isConvertFormat: true
+          },
+          {
+            emulateJSON: true
+          }
+        )
         .then(resp => {
           // console.log(resp);
-          this.list = resp.data
+          if (resp.data === "error") {
+            this.$Message.warning("暂无数据");
+          } else {
+            this.listPage = resp.data;
+            this.list = resp.data.data;
+          }
         })
         .catch(error => {
           console.log(error);
@@ -48,6 +89,7 @@ export default {
   border: none;
   border-bottom: 1px dashed #ccc;
   color: black;
+  cursor: pointer;
   transition: all 0.3s linear;
 }
 .list-item:hover {
@@ -69,6 +111,10 @@ export default {
 }
 .list-item p:last-of-type {
   padding: 10px;
+  text-align: right;
+}
+.list-item-page {
+  padding: 20px;
   text-align: right;
 }
 </style>

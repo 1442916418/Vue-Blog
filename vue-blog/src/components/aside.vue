@@ -4,9 +4,7 @@
       <span>搜索</span>
     </div>
     <div class="tit search-box">
-      <el-input placeholder="请输入内容" v-model="search">
-        <i slot="prefix" class="el-input__icon el-icon-search"></i>
-      </el-input>
+      <Input search placeholder="请输入内容" v-model="search"/>
     </div>
 
     <div class="title-box">

@@ -2,7 +2,7 @@
   <el-row>
     <el-col :span="24">
       <transition name="tit">
-        <div class="title" v-show="!isShow">
+        <div class="title">
           <h1 v-text="name" @click="()=>{$router.push('/')}"></h1>
           <h3 v-text="subTitle"></h3>
         </div>
@@ -27,41 +27,18 @@
 
 <script>
 export default {
-  data() {
+   data() {
     return {
-      name: sessionStorage.getItem("name"),
-      subTitle: sessionStorage.getItem("subTitle"),
-      isShow: true
+      name: JSON.parse(sessionStorage.getItem('key')).name,
+      subTitle: JSON.parse(sessionStorage.getItem('key')).subTitle,
     };
   },
-  mounted() {
-    if (sessionStorage.getItem("name") == null) {
-      this.getUserInfo();
-    } else {
-      this.name = sessionStorage.getItem("name");
-      this.subTitle = sessionStorage.getItem("subTitle");
-      this.isShow = !this.isShow;
-    }
-  },
-  methods: {
-    getUserInfo() {
-      this.$http
-        .get("http://127.0.0.1:1111/cgi-bin/userInfo_select_all.py")
-        .then(resp => {
-          // console.log(resp);
-          sessionStorage.setItem("name", resp.data[0].name);
-          sessionStorage.setItem("subTitle", resp.data[0].subTitle);
-
-          this.name = sessionStorage.getItem("name");
-          this.subTitle = sessionStorage.getItem("subTitle");
-          this.isShow = !this.isShow;
-        })
-        .catch(error => {
-          console.error(error);
-        });
-    }
+  created(){
+    let getUserInfo = JSON.parse(sessionStorage.getItem('key'));
+    this.name = getUserInfo.name;
+    this.subTitle = getUserInfo.subTitle;
   }
-};
+}
 </script>
 
 <style scoped>

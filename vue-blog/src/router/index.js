@@ -2,19 +2,22 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/home'
 import Contact from '@/components/contact'
+import Login from '@/components/login'
+import RearLogin from '@/components/rearLogin'
+import RearRegister from '@/components/rearRegister'
+import ArticleDetails from '@/components/articleDetails'
 
-import Administration from '@/back/administration'
 import Main from '@/back/main'
+import Administration from '@/back/administration'
 import ArticleMan from '@/back/article/articleManageMent'
 import AddArticle from '@/back/article/addArticle'
 import UpdateArticle from '@/back/article/updateArticle'
-
-import RearLogin from '@/components/rearLogin'
-import RearRegister from '@/components/rearRegister'
+import UserInfoPage from '@/back/userInfo/userInfoPage'
+import BackstageUserInfo from '@/back/backstageUserInfo/backstageUserInfo'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',  // 前台首页
@@ -23,6 +26,7 @@ export default new Router({
       meta: {
         index: 0,
         showContent: true,
+        verifyLogin: true
       },
       children: [
         {
@@ -36,7 +40,23 @@ export default new Router({
             showContent: false,
           },
         },
+        {
+          path: '/articleDetails/:id',    // 前台文章详情页面
+          name: 'articleDetails',
+          components: {
+            mainContent: ArticleDetails
+          },
+          meta: {
+            index: 1,
+            showContent: false,
+          },
+        }
       ]
+    },
+    {
+      path: '/login',   // 前台登录
+      name: 'login',
+      component: Login
     },
     {
       path: '/administration',  // 后台管理首页
@@ -72,6 +92,20 @@ export default new Router({
           components: {
             rearMain: UpdateArticle
           }
+        },
+        {
+          path: '/userInfoPage',    // 前台用户管理页面
+          name: 'userInfoPage',
+          components: {
+            rearMain: UserInfoPage
+          }
+        },
+        {
+          path: '/backstageUserInfo',  // 后天用户管理页面
+          name: 'backstageUserInfo',
+          components: {
+            rearMain: BackstageUserInfo
+          }
         }
       ]
     },
@@ -91,3 +125,21 @@ export default new Router({
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  // console.log('to----', to)
+  // console.log('from------', from)
+  // console.log('next---------', next)
+
+  if (to.meta.verifyLogin) {
+    if (sessionStorage.getItem('key') === null) {
+      next({ name: 'login' });
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+});
+
+export default router;

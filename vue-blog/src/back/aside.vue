@@ -14,13 +14,13 @@
         <template slot="title">
           <Icon type="ios-people"></Icon>用户管理(后)
         </template>
-        <Menu-item name="3-1">用户管理</Menu-item>
+        <Menu-item name="3-1" to="/backstageUserInfo">用户管理</Menu-item>
       </Submenu>
       <Submenu name="4">
         <template slot="title">
           <Icon type="ios-people"></Icon>用户管理(前)
         </template>
-        <Menu-item name="4-1">用户管理</Menu-item>
+        <Menu-item name="4-1" to="/userInfoPage">用户管理</Menu-item>
       </Submenu>
     </Menu>
   </div>
