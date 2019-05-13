@@ -23,6 +23,7 @@
       <div class="bottom-home">
         <Button type="text" ghost @click="()=>{$router.push('/')}">返回首页</Button>
       </div>
+        <div :style="{'color': '#808695','text-align':'center'}">用户名:<b>user</b> 密码:<b>111</b></div>
     </Form>
   </div>
 </template>

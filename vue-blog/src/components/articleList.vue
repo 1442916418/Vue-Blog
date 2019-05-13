@@ -1,6 +1,11 @@
 <template>
   <div class="articleList-box">
-    <div class="list-item" v-for="(list, index) in list" :key="index" @click="detailsPage(list.id)">
+    <div
+      class="list-item"
+      v-for="(list, index) in list"
+      :key="index"
+      @click="detailsPage(list.id, list.readingVolume)"
+    >
       <p>
         <span v-html="list.title"></span>
       </p>
@@ -40,12 +45,12 @@ export default {
   },
   methods: {
     // 点击跳转详情页面
-    detailsPage(id) {
-      console.log(id);
+    detailsPage(id, count) {
       this.$router.push({
         name: "articleDetails",
         params: {
-          id: id
+          id: id,
+          count: count
         }
       });
     },
@@ -94,7 +99,6 @@ export default {
 }
 .list-item:hover {
   /* margin: -10px; */
-  padding: 0;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
   transition: all 0.3s linear;
@@ -104,10 +108,16 @@ export default {
   text-align: left;
   font-weight: 600;
   color: #17233d;
+  font-size: 20px;
 }
 .list-item p:nth-of-type(2) {
-  padding: 10px;
+  margin: 10px;
   color: #515a6e;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 .list-item p:last-of-type {
   padding: 10px;

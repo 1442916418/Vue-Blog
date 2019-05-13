@@ -1,5 +1,6 @@
 <template>
   <el-container class="container">
+    <myGithub></myGithub>
     <el-header class="header" height="100%">
       <myheader></myheader>
     </el-header>
@@ -26,6 +27,7 @@ import Header from "./header";
 import Aside from "./aside";
 import Main from "./main";
 import Footer from "./footer";
+import MyGithub from './github'
 
 export default {
   data() {
@@ -35,7 +37,8 @@ export default {
     myheader: Header,
     myAside: Aside,
     myMain: Main,
-    myFooter: Footer
+    myFooter: Footer,
+    myGithub: MyGithub
   }
 };
 </script>

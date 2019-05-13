@@ -18,8 +18,8 @@
         active-text-color="#303133"
       >
         <el-menu-item index="/">首页</el-menu-item>
-        <el-menu-item index="contact">联系</el-menu-item>
-        <el-menu-item index="rearLogin">管理</el-menu-item>
+        <el-menu-item index="/contact">联系</el-menu-item>
+        <el-menu-item index="/rearLogin">管理</el-menu-item>
       </el-menu>
     </el-col>
   </el-row>

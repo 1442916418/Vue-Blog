@@ -39,7 +39,7 @@ export default {
       if (this.article.title === "") {
         this.$Message.warning("必须 文章标题不能为空");
         return;
-      } else if (!/^[\u4e00-\u9fa50-9a-zA-Z]{0,30}$/.test(this.article.title)) {
+      } else if (!/^[\u4e00-\u9fa50-9a-zA-Z\s]{0,30}$/.test(this.article.title)) {
         this.$Message.warning("必须 文章标题不能超过30个字符");
         return;
       } else if (this.editor.txt.text() === "") {

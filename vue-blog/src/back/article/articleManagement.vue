@@ -13,7 +13,7 @@
         @on-change="tabData"
         show-elevator
         show-total
-        v-show="dataPage.length != 0"
+        v-show="data.length != 0"
       />
     </div>
   </div>
@@ -25,7 +25,7 @@ import qs from "querystring";
 export default {
   data() {
     return {
-      noData: "加载中",
+      noData: "暂无数据",
       modal: false,
       columns: [
         {
@@ -41,20 +41,25 @@ export default {
         {
           title: "内容",
           key: "content",
-          reader: (h, params) => {
-            return h(
-              "span",
-              {
-                style: {
-                  display: "inline-block",
-                  width: "100%",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  whiteSpace: "nowrap"
-                }
-              },
-              params.row.content
-            );
+          render: (h, params) => {
+            return h("div", [
+              h(
+                "span",
+                {
+                  style: {
+                    display: "inline-block",
+                    width: "100%",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap"
+                  },
+                  domProps: {
+                    content: params.row.content
+                  }
+                },
+                params.row.content
+              )
+            ]);
           }
         },
         {

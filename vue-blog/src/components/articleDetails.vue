@@ -17,14 +17,39 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
+      count: this.$route.params.count,
       articleData: [],
       isShow: false
     };
   },
   created() {
+    this.setAddCount(this.id, this.count);
     this.getArticleData(1);
   },
   methods: {
+    setAddCount(id, count) {
+      let con = parseInt(count) + 1;
+      this.$http
+        .post(
+          "/cgi-bin/article_update_readingVolume.py",
+          {
+            id: id,
+            readingVolume: con
+          },
+          { emulateJSON: true }
+        )
+        .then(resp => {
+          // console.log(resp);
+          if (resp.data === "success") {
+            return resp.data;
+          } else {
+            return resp.data;
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
     getArticleData(pageNum) {
       this.$http
         .post(
@@ -38,7 +63,7 @@ export default {
           }
         )
         .then(resp => {
-          console.log(resp);
+          // console.log(resp);
           if (resp.data === "error") {
             this.$Message.waring("获取文章失败");
             this.$router.push("/");
@@ -57,14 +82,23 @@ export default {
 
 <style lang="less" scoped>
 .article-details-box {
-  padding: 20px;
   .article-title {
+    letter-spacing: 1px;
+    font-size: 40px;
     margin: 20px 0;
     color: #17233d;
     text-align: center;
+    transition: all 0.5s linear;
+    &:hover {
+      color: #515a6e;
+      text-shadow: 1px 1px #d7e8f9, 2px 2px #d7e8f9, 3px 3px #d7e8f9,
+        4px 4px #d7e8f9, 5px 5px #d7e8f9, 6px 6px #d7e8f9;
+      transition: all 0.5s linear;
+    }
   }
   .article-content {
     color: #515a6e;
+    padding: 20px;
   }
   .footer {
     margin: 20px 0;

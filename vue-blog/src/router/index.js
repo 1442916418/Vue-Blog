@@ -126,6 +126,8 @@ const router = new Router({
   ]
 })
 
+
+
 router.beforeEach((to, from, next) => {
   // console.log('to----', to)
   // console.log('from------', from)
@@ -141,5 +143,6 @@ router.beforeEach((to, from, next) => {
     next();
   }
 });
+
 
 export default router;
