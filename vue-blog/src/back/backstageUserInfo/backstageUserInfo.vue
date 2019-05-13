@@ -35,6 +35,7 @@
 
 <script>
 export default {
+  inject: ['reload'],
   data() {
     return {
       temporaryData: "",
@@ -157,10 +158,11 @@ export default {
               }
             )
             .then(resp => {
-              console.log(resp);
+              // console.log(resp);
               if (resp.data === "success") {
                 this.$Message.success("提交成功");
-                this.getBackstageUserInfoData();
+                // this.getBackstageUserInfoData();
+                this.reload()
                 this.isShow = false;
                 this.newData.name = "";
                 this.newData.pwd = "";
@@ -195,7 +197,8 @@ export default {
               console.log(resp);
               if (resp.data === "success") {
                 this.$Message.success("修改成功");
-                this.getBackstageUserInfoData();
+                // this.getBackstageUserInfoData();
+                this.reload();
                 this.isShow = false;
                 this.newData.name = "";
                 this.newData.pwd = "";
@@ -221,7 +224,8 @@ export default {
           //   console.log(resp);
           if (resp.data == "success") {
             this.$Message.success("删除成功");
-            this.getBackstageUserInfoData();
+            // this.getBackstageUserInfoData();
+            this.reload();
           } else {
             this.$Message.error("删除失败");
           }

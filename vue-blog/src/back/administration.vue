@@ -9,7 +9,7 @@
     </Sider>
 
     <Content style="margin: 55px 0 0 200px;">
-      <router-view name="rearMain"></router-view>
+      <router-view name="rearMain" v-if="isRouterAlive"></router-view>
     </Content>
   </Layout>
 </template>
@@ -19,13 +19,26 @@ import Header from "./header";
 import Aside from "./aside";
 
 export default {
+  provide() {
+    return {
+      reload: this.reload
+    };
+  },
   data() {
-    return {};
+    return { isRouterAlive: true };
   },
   mounted() {
     this.$router.push({
       name: "main"
     });
+  },
+  methods: {
+    reload() {
+      this.isRouterAlive = false;
+      this.$nextTick(function() {
+        this.isRouterAlive = true;
+      });
+    }
   },
   components: {
     RearHeader: Header,
@@ -35,7 +48,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.container{
+.container {
   width: 100%;
   height: 100%;
 }

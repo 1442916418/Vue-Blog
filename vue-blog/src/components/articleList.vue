@@ -93,7 +93,6 @@ export default {
   padding: 15px;
   border: none;
   border-bottom: 1px dashed #ccc;
-  color: black;
   cursor: pointer;
   transition: all 0.3s linear;
 }

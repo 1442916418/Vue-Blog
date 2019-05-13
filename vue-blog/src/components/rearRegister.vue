@@ -50,9 +50,6 @@ export default {
     rest() {
       this.user = {};
     },
-    home() {
-      this.$router.push("/");
-    },
     reg(r) {
       this.$refs[r].validate(valid => {
         if (valid) {

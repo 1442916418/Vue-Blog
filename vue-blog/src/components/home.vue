@@ -5,13 +5,14 @@
 </template>
 
 <script>
-import DisplayPage from './displayPage'
+import DisplayPage from "./displayPage";
 
 export default {
   components: {
     MyDisplayPage: DisplayPage
-  }
-}
+  },
+ 
+};
 </script>
 
 
@@ -25,5 +26,4 @@ export default {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-
 </style>

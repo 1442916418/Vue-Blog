@@ -17,7 +17,7 @@
           type="text"
           ghost
           :style="{'margin-left':'20px'}"
-          @click="()=>{$router.push('rearRegister')}"
+          @click="()=>{$router.push('/register')}"
         >注册</Button>
       </FormItem>
       <div class="bottom-home">
@@ -95,6 +95,7 @@ export default {
 }
 .form {
   width: 20%;
+  min-width: 200px;
   background-color: rgba(240, 240, 240, 0.7);
   margin: 200px auto;
   padding: 20px 20px 0;

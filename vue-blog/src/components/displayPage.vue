@@ -27,7 +27,7 @@ import Header from "./header";
 import Aside from "./aside";
 import Main from "./main";
 import Footer from "./footer";
-import MyGithub from './github'
+import MyGithub from "./github";
 
 export default {
   data() {
@@ -39,7 +39,8 @@ export default {
     myMain: Main,
     myFooter: Footer,
     myGithub: MyGithub
-  }
+  },
+  
 };
 </script>
 

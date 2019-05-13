@@ -7,7 +7,21 @@
 
 <script>
 export default {
-  name: "App"
+  name: "App",
+  data() {
+    return {};
+  },
+  watch: {
+    $route: {
+      handler: function(to, from) {
+        if (to != from) {
+          sessionStorage.removeItem("count");
+        }
+      },
+      // 深度观察监听
+      deep: true
+    }
+  }
 };
 </script>
 
@@ -17,6 +31,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: rgb(44, 44, 44);
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 </style>

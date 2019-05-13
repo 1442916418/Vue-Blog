@@ -23,6 +23,7 @@
 <script>
 import qs from "querystring";
 export default {
+  inject: ['reload'],
   data() {
     return {
       noData: "暂无数据",
@@ -32,7 +33,6 @@ export default {
           title: "ID",
           key: "id",
           sortable: true,
-          width: "180"
         },
         {
           title: "标题",
@@ -66,24 +66,20 @@ export default {
           title: "阅读量",
           key: "readingVolume",
           sortable: true,
-          width: "180"
         },
         {
           title: "创建时间",
           key: "releaseTime",
           sortable: true,
-          width: "180"
         },
         {
           title: "上次修改时间",
           key: "modificationTime",
           sortable: true,
-          width: "180"
         },
         {
           title: "Action",
           key: "action",
-          width: "180",
           align: "center",
           render: (h, params) => {
             return h("div", [
@@ -154,10 +150,11 @@ export default {
       this.$http
         .post("/cgi-bin/article_delete.py", { id: e.id }, { emulateJSON: true })
         .then(resp => {
-          console.log(resp);
+          // console.log(resp);
           if (resp.data == "success") {
             this.$Message.success("删除成功");
-            this.getArticleData(1);
+            // this.getArticleData(1);
+            this.reload();
           } else {
             this.$Message.error("删除失败");
           }

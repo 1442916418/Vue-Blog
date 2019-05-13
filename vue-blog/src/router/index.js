@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/home'
 import Contact from '@/components/contact'
 import Login from '@/components/login'
+import Register from '@/components/register'
 import RearLogin from '@/components/rearLogin'
 import RearRegister from '@/components/rearRegister'
 import ArticleDetails from '@/components/articleDetails'
@@ -57,6 +58,11 @@ const router = new Router({
       path: '/login',   // 前台登录
       name: 'login',
       component: Login
+    },
+    {
+      path: '/register',  // 前台注册
+      name: 'register',
+      component: Register
     },
     {
       path: '/administration',  // 后台管理首页

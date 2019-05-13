@@ -10,21 +10,21 @@
     <Modal
       :title="userInfoTitle"
       v-model="isShow"
-      class-name="vertical-center-modal"
+      class-name="vertical-center-modal" 
       :footer-hide="true"
     >
       <Form :model="newData" :rules="rul" ref="rul">
         <FormItem label="登录名" prop="loginName">
-          <Input v-model="newData.loginName" placeholder="请输入登录名..."></Input>
+          <Input v-model="newData.loginName" placeholder="请您输入用户名..."></Input>
         </FormItem>
         <FormItem label="登录密码" prop="loginPassword">
-          <Input v-model="newData.loginPassword" placeholder="请输入登录密码..."></Input>
+          <Input v-model="newData.loginPassword" placeholder="请您输入用户密码..."></Input>
         </FormItem>
         <FormItem label="昵称/姓名" prop="name">
-          <Input v-model="newData.name" placeholder="请输入昵称(主标题)..."></Input>
+          <Input v-model="newData.name" placeholder="请您输入个人昵称..."></Input>
         </FormItem>
         <FormItem label="副标题" prop="subTitle">
-          <Input v-model="newData.subTitle" placeholder="请输入副标题..."></Input>
+          <Input v-model="newData.subTitle" placeholder="请您输入个人描述..."></Input>
         </FormItem>
         <Form-item :style="{'text-align':'center'}">
           <i-button type="dashed" @click="cancel">取消</i-button>
@@ -43,6 +43,7 @@
 import { dateFormat } from "../../publicJs/dateFormat.js";
 
 export default {
+  inject: ['reload'],
   data() {
     return {
       temporaryData: "",
@@ -95,40 +96,34 @@ export default {
         {
           title: "ID",
           key: "id",
-          width: "180"
         },
         {
-          title: "登录名",
+          title: "用户名",
           key: "loginName",
-          width: "180"
         },
         {
-          title: "登录密码",
+          title: "用户密码",
           key: "loginPassword",
-          width: "180"
         },
         {
-          title: "昵称",
+          title: "个人昵称",
           key: "name"
         },
         {
-          title: "副标题",
+          title: "个人描述",
           key: "subTitle"
         },
         {
           title: "创建时间",
           key: "creationTime",
-          width: "180"
         },
         {
           title: "上次修改时间",
           key: "lastModificationTime",
-          width: "180"
         },
         {
           title: "Action",
           key: "action",
-          width: "180",
           align: "center",
           render: (h, params) => {
             return h("div", [
@@ -215,7 +210,8 @@ export default {
               // console.log(resp);
               if (resp.data === "success") {
                 this.$Message.success("提交成功");
-                this.getUserData();
+                // this.getUserData();
+                this.reload()
                 this.isShow = false;
                 this.newData = {};
               } else {
@@ -254,7 +250,8 @@ export default {
               // console.log(resp);
               if (resp.data === "success") {
                 this.$Message.success("修改成功");
-                this.getUserData();
+                // this.getUserData();
+                this.reload()
                 this.isShow = false;
                 this.newData.name = "";
                 this.newData.subTitle = "";
@@ -311,7 +308,8 @@ export default {
           //   console.log(resp);
           if (resp.data == "success") {
             this.$Message.success("删除成功");
-            this.getUserData();
+            // this.getUserData();
+            this.reload();
           } else {
             this.$Message.error("删除失败");
           }

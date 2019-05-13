@@ -27,18 +27,19 @@
 
 <script>
 export default {
-   data() {
+  data() {
     return {
-      name: JSON.parse(sessionStorage.getItem('key')).name,
-      subTitle: JSON.parse(sessionStorage.getItem('key')).subTitle,
+      name: JSON.parse(sessionStorage.getItem("key")).name,
+      subTitle: JSON.parse(sessionStorage.getItem("key")).subTitle
     };
   },
-  created(){
-    let getUserInfo = JSON.parse(sessionStorage.getItem('key'));
+  created() {
+    let getUserInfo = JSON.parse(sessionStorage.getItem("key"));
     this.name = getUserInfo.name;
     this.subTitle = getUserInfo.subTitle;
-  }
-}
+  },
+  
+};
 </script>
 
 <style scoped>

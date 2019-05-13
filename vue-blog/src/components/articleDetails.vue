@@ -17,18 +17,39 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
-      count: this.$route.params.count,
+      title: this.$route.params.title ? this.$route.params : "",
       articleData: [],
       isShow: false
     };
   },
+  watch: {
+    $route: {
+      handler: function(to, from) {
+        if (to.path != from.path) {
+          if (sessionStorage.getItem("count") === null) {
+            this.setAddCount(to.params.id, to.params.count);
+          }
+          this.getArticleData(1, to.params.id, to.params.title);
+        }
+      },
+      // 深度观察监听
+      deep: true
+    }
+  },
   created() {
-    this.setAddCount(this.id, this.count);
-    this.getArticleData(1);
+    let count = this.$route.params.count;
+
+    if (sessionStorage.getItem("count") === null) {
+      this.setAddCount(this.id, count);
+    } else {
+      this.setAddCount(this.id, sessionStorage.getItem("count"));
+    }
+    this.getArticleData(1, this.id, this.title);
   },
   methods: {
     setAddCount(id, count) {
       let con = parseInt(count) + 1;
+      sessionStorage.setItem("count", con);
       this.$http
         .post(
           "/cgi-bin/article_update_readingVolume.py",
@@ -50,13 +71,14 @@ export default {
           console.log(error);
         });
     },
-    getArticleData(pageNum) {
+    getArticleData(pageNum, id, title) {
       this.$http
         .post(
           "/cgi-bin/article_select_all_page.py",
           {
-            id: this.id,
-            pageNum: pageNum
+            id: id,
+            pageNum: pageNum,
+            title: title
           },
           {
             emulateJSON: true
@@ -80,7 +102,15 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
+.parent-transition {
+  transition: all 0.4s linear;
+}
+.transition {
+  text-shadow: 1px 1px #d7e8f9, 2px 2px #d7e8f9, 3px 3px #d7e8f9,
+    4px 4px #d7e8f9, 5px 5px #d7e8f9, 6px 6px #d7e8f9;
+  transition: all 0.4s linear;
+}
 .article-details-box {
   .article-title {
     letter-spacing: 1px;
@@ -88,17 +118,56 @@ export default {
     margin: 20px 0;
     color: #17233d;
     text-align: center;
-    transition: all 0.5s linear;
+    .parent-transition;
     &:hover {
       color: #515a6e;
-      text-shadow: 1px 1px #d7e8f9, 2px 2px #d7e8f9, 3px 3px #d7e8f9,
-        4px 4px #d7e8f9, 5px 5px #d7e8f9, 6px 6px #d7e8f9;
-      transition: all 0.5s linear;
+      .transition;
     }
   }
   .article-content {
+    font-size: 14px;
     color: #515a6e;
     padding: 20px;
+    code {
+      color: #476582;
+      margin: 0;
+      background-color: rgba(27, 31, 35, 0.04);
+      border-radius: 3px;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 20px 0;
+      color: #17233d;
+      border-bottom: 1px solid #dcdee2;
+      .parent-transition;
+      &:hover {
+        color: #001a52;
+        .transition;
+      }
+    }
+    pre {
+      margin: 10px 0;
+      padding: 20px;
+      border: none;
+      border-radius: 5px;
+      background: rgba(248, 248, 248, 0.4);
+    }
+    table {
+      margin: 20px 0;
+      border-collapse: collapse;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid #aaa;
+      text-align: center;
+      padding: 10px;
+    }
   }
   .footer {
     margin: 20px 0;
