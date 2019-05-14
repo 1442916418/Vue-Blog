@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jsonp</title>
+</head>
+<body>
+    <Button type="primary" onclick="getJsonp()">Jsonp</Button>
+
+    <script src="./jquery-3.1.1.js"></script>
+    <script>
+        // callback 第一个参数，回调 jsonp
+        // id 第二个参数，请求数据id
+        // _ 第三个参数是默认自带的，每次请求都会不一样，浏览器不会有缓存
+        function getJsonp(){
+            $.ajax({
+                type: 'GET',
+                url: 'http://192.168.1.254:8888/sys/user/select/jsonp',
+                data: { id: 283 },
+                dataType: 'jsonp',
+                jsonpCallback: 'jsonp'
+            })
+        }
+
+        function jsonp(result){
+            console.log(result)
+        }
+    </script>
+</body>
+</html>
