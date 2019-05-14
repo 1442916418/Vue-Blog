@@ -117,6 +117,8 @@ export default {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+  white-space:nowrap; /*不显示的地方用省略号...代替*/
+  -o-text-overflow: ellipsis; /* 支持 Opera */
 }
 .list-item p:last-of-type {
   padding: 0.625em;

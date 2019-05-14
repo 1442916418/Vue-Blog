@@ -107,13 +107,12 @@ export default {
   transition: all 0.4s linear;
 }
 .transition {
-  text-shadow: 0.625em 0.625em #d7e8f9, 0.125em 0.125em #d7e8f9, 0.1875em 0.1875em #d7e8f9,
-     0.25em  0.25em #d7e8f9, 0.3125em 0.3125em #d7e8f9, 0.375em 0.375em #d7e8f9;
+  text-shadow: 5px 5px 2px #b7b7b7;
   transition: all 0.4s linear;
 }
 .article-details-box {
   .article-title {
-    letter-spacing: 0.625em;
+    letter-spacing: 1px;
     font-size: 2.5em;
     margin: 1.25em 0;
     color: #17233d;
@@ -125,7 +124,7 @@ export default {
     }
   }
   .article-content {
-    font-size: 0.875em;
+    font-size: 14px;
     color: #515a6e;
     padding: 1.25em;
     code {
@@ -142,7 +141,7 @@ export default {
     h6 {
       margin: 1.25em 0;
       color: #17233d;
-      border-bottom: 0.625em solid #dcdee2;
+      border-bottom: 1px solid #dcdee2;
       .parent-transition;
       &:hover {
         color: #001a52;
