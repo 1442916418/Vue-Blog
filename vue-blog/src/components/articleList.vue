@@ -90,7 +90,7 @@ export default {
 
 <style scoped>
 .list-item {
-  padding: 15px;
+  padding: 0.9375em;
   border: none;
   border-bottom: 1px dashed #ccc;
   cursor: pointer;
@@ -99,18 +99,18 @@ export default {
 .list-item:hover {
   /* margin: -10px; */
   background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 5px;
+  border-radius: 0.3125em;
   transition: all 0.3s linear;
 }
 .list-item p:first-of-type {
-  padding: 10px;
+  padding: 0.625em;
   text-align: left;
   font-weight: 600;
   color: #17233d;
-  font-size: 20px;
+  font-size: 1.25em;
 }
 .list-item p:nth-of-type(2) {
-  margin: 10px;
+  margin: 0.625em;
   color: #515a6e;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -119,11 +119,11 @@ export default {
   -webkit-line-clamp: 2;
 }
 .list-item p:last-of-type {
-  padding: 10px;
+  padding: 0.625em;
   text-align: right;
 }
 .list-item-page {
-  padding: 20px;
+  padding: 1.25em;
   text-align: right;
 }
 </style>

@@ -24,7 +24,7 @@
           <i-button type="dashed" @click="cancel">取消</i-button>
           <i-button
             type="primary"
-            :style="{'margin-left':'20px'}"
+            :style="{'margin-left':'1.25em'}"
             @click="addAndUpdateUserInfo(userInfoTitle)"
           >确定</i-button>
         </Form-item>
@@ -270,9 +270,9 @@ export default {
 
 <style lang="less" scoped>
 .backstageUserInfo-box {
-  padding: 20px;
+  padding: 1.25em;
   .operation-box {
-    margin-bottom: 20px;
+    margin-bottom: 1.25em;
   }
 }
 </style>

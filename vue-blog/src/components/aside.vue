@@ -130,38 +130,38 @@ export default {
 
 <style scoped>
 .aside-box {
-  margin: 20px;
+  margin: 1.25em;
 }
 .calendar-box {
   width: 100%;
-  height: 380px;
+  height: 23.75em
 }
 .title-box {
   width: 100%;
-  height: 60px;
+  height: 3.75em;
   border: none;
-  line-height: 60px;
-  text-indent: 20px;
-  border-radius: 35px;
-  margin-bottom: 15px;
+  line-height: 3.75em;
+  text-indent: 1.25em;
+  border-radius: 2.1875em;
+  margin-bottom: 0.9375em;
   color: rgb(0, 113, 226);
   background-color: rgba(255, 255, 255, 0.7);
-  border-left: 10px solid #8cc5ff;
+  border-left: 0.625em solid #8cc5ff;
 }
 .title-box span {
-  font-size: 18px;
+  font-size: 1.125em;
   font-weight: 500;
-  letter-spacing: 5px;
+  letter-spacing: 0.3125em;
 }
 .tit {
-  margin: 30px;
+  margin: 1.875em;
 }
 .tit ul {
   padding: 0;
 }
 .tit ul li {
   list-style-type: none;
-  padding: 4px 0;
-  letter-spacing: 2px;
+  padding: 0.25em 0;
+  letter-spacing: 0.125em;
 }
 </style>

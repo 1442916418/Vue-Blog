@@ -327,9 +327,9 @@ export default {
 
 <style lang="less" scoped>
 .userInfoPage-box {
-  padding: 20px;
+  padding: 1.25em;
   .operation-box {
-    margin-bottom: 20px;
+    margin-bottom: 1.25em;
   }
 }
 </style>

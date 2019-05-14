@@ -55,8 +55,8 @@ export default {
 .header {
   background-color: #ebeef5;
   width: 100%;
-  height: 55px;
-  line-height: 55px;
+  height: 3.4375em;
+  line-height: 3.4375em;
   position: fixed;
   top: 0;
   left: 0;

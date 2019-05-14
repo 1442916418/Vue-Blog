@@ -37,8 +37,7 @@ export default {
     let getUserInfo = JSON.parse(sessionStorage.getItem("key"));
     this.name = getUserInfo.name;
     this.subTitle = getUserInfo.subTitle;
-  },
-  
+  }
 };
 </script>
 
@@ -52,7 +51,7 @@ export default {
 }
 .tit-enter-to {
   opacity: 1;
-  height: 83px;
+  height: 5.1875em;
 }
 
 .title h1 {
@@ -66,10 +65,10 @@ export default {
 }
 .title h1:hover {
   color: #171766;
-  padding-left: 120px;
+  padding-left: 7.5em;
 }
 .title h3 {
-  margin: 10px;
+  margin: 0.625em;
   text-indent: 2.5em;
   font-size: 1em;
   font-weight: 500;

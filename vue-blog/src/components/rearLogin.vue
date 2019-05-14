@@ -16,14 +16,18 @@
         <Button
           type="text"
           ghost
-          :style="{'margin-left':'20px'}"
+          :style="{'margin-left':'1.25em'}"
           @click="()=>{$router.push('rearRegister')}"
         >注册</Button>
       </FormItem>
       <div class="bottom-home">
         <Button type="text" ghost @click="()=>{$router.push('/')}">返回首页</Button>
       </div>
-      <div :style="{'color': '#808695','text-align':'center'}">用户名：<b>admin</b> 密码：<b>111</b></div>
+      <div :style="{'color': '#808695','text-align':'center'}">
+        用户名：
+        <b>admin</b> 密码：
+        <b>111</b>
+      </div>
     </Form>
   </div>
 </template>
@@ -59,7 +63,10 @@ export default {
             .then(resp => {
               // console.log(resp);
               if (resp.data.isOk == "success") {
-                this.rearNmae = sessionStorage.setItem("rearName", resp.data.name);
+                this.rearNmae = sessionStorage.setItem(
+                  "rearName",
+                  resp.data.name
+                );
                 this.$Message.success("登录成功");
                 this.$router.push("administration");
               } else {
@@ -87,11 +94,12 @@ export default {
   overflow: hidden;
 }
 .form {
-  width: 20%;
+  width: 25em;
+  min-width: 15.625em;
   background-color: rgba(240, 240, 240, 0.4);
-  margin: 200px auto;
-  padding: 20px 20px 0;
-  border-radius: 5px;
+  margin: 12.5em auto;
+  padding: 1.25em 1.25em 0;
+  border-radius: 0.3125em;
   position: relative;
 }
 .bottom-home {

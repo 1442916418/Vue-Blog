@@ -78,7 +78,6 @@ export default {
 };
 </script>
 
-
 <style scoped>
 .reg-box {
   background-image: url("../assets/reg.jpg");
@@ -88,11 +87,12 @@ export default {
   width: 100%;
 }
 .form {
-  width: 20%;
+  width: 25em;
+  min-width: 15.625em;
   background-color: rgba(240, 240, 240, 0.4);
-  margin: 200px auto;
-  padding: 20px 20px 0;
-  border-radius: 5px;
+  margin: 12.5em auto;
+  padding: 1.25em 1.25em 0;
+  border-radius: 0.3125em;
 }
 .left {
   text-align: left;

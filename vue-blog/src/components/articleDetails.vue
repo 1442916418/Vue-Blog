@@ -107,15 +107,15 @@ export default {
   transition: all 0.4s linear;
 }
 .transition {
-  text-shadow: 1px 1px #d7e8f9, 2px 2px #d7e8f9, 3px 3px #d7e8f9,
-    4px 4px #d7e8f9, 5px 5px #d7e8f9, 6px 6px #d7e8f9;
+  text-shadow: 0.625em 0.625em #d7e8f9, 0.125em 0.125em #d7e8f9, 0.1875em 0.1875em #d7e8f9,
+     0.25em  0.25em #d7e8f9, 0.3125em 0.3125em #d7e8f9, 0.375em 0.375em #d7e8f9;
   transition: all 0.4s linear;
 }
 .article-details-box {
   .article-title {
-    letter-spacing: 1px;
-    font-size: 40px;
-    margin: 20px 0;
+    letter-spacing: 0.625em;
+    font-size: 2.5em;
+    margin: 1.25em 0;
     color: #17233d;
     text-align: center;
     .parent-transition;
@@ -125,14 +125,14 @@ export default {
     }
   }
   .article-content {
-    font-size: 14px;
+    font-size: 0.875em;
     color: #515a6e;
-    padding: 20px;
+    padding: 1.25em;
     code {
       color: #476582;
       margin: 0;
       background-color: rgba(27, 31, 35, 0.04);
-      border-radius: 3px;
+      border-radius: 0.1875em;
     }
     h1,
     h2,
@@ -140,9 +140,9 @@ export default {
     h4,
     h5,
     h6 {
-      margin: 20px 0;
+      margin: 1.25em 0;
       color: #17233d;
-      border-bottom: 1px solid #dcdee2;
+      border-bottom: 0.625em solid #dcdee2;
       .parent-transition;
       &:hover {
         color: #001a52;
@@ -150,27 +150,27 @@ export default {
       }
     }
     pre {
-      margin: 10px 0;
-      padding: 20px;
+      margin: 0.625em 0;
+      padding: 1.25em;
       border: none;
-      border-radius: 5px;
+      border-radius: 0.3125em;
       background: rgba(248, 248, 248, 0.4);
     }
     table {
-      margin: 20px 0;
+      margin: 1.25em 0;
       border-collapse: collapse;
     }
 
     table,
     th,
     td {
-      border: 1px solid #aaa;
+      border: 0.0625em solid #aaa;
       text-align: center;
-      padding: 10px;
+      padding: 0.625em;
     }
   }
   .footer {
-    margin: 20px 0;
+    margin: 1.25em 0;
     text-align: right;
   }
 }

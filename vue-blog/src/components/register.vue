@@ -119,12 +119,12 @@ export default {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   .form {
-    width: 20%;
-    min-width: 200px;
+    width: 25em;
+    min-width: 15.625em;
     margin: 100px auto;
     background-color: rgba(240, 240, 240, 0.7);
-    padding: 20px 20px 0;
-    border-radius: 5px;
+    padding: 1.25em 1.25em 0;
+    border-radius: 0.3125em;
     position: relative;
   }
   .bottom-home {

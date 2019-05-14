@@ -46,8 +46,8 @@ export default {
 
 <style scoped>
 .container {
-  margin: 30px 10%;
-  border-radius: 25px;
+  margin: 1.875em 10%;
+  border-radius: 1.5625em;
   background-color: rgba(255, 255, 255, 0.5);
   opacity: 0.7;
   transition: all 0.6s linear;

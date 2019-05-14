@@ -41,10 +41,10 @@ export default {
 
 <style lang="less" scoped>
 .main-charts {
-  padding: 20px;
+  padding: 1.25em;
 }
 .row-2 {
-  margin: 50px 0;
+  margin: 3.125em 0;
 }
 </style>
 

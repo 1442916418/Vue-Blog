@@ -19,7 +19,6 @@
   </div>
 </template>
 
-
 <script>
 import qs from "querystring";
 export default {
@@ -191,12 +190,12 @@ export default {
 
 <style lang="less" scoped>
 .article-box {
-  padding: 20px;
+  padding: 1.25em;
   .operation-box {
-    margin-bottom: 20px;
+    margin-bottom: 1.25em;
   }
   .page {
-    padding: 20px;
+    padding: 1.25em;
     text-align: center;
   }
 }

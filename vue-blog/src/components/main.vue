@@ -32,6 +32,6 @@ export default {
 
 <style scoped>
 .main-box {
-  padding: 20px;
+  padding: 1.25em;
 }
 </style>

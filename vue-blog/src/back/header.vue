@@ -42,15 +42,15 @@ export default {
 <style scoped>
 .hader-box {
   width: 100%;
-  height: 55px;
+  height: 3.4375em;
 }
 /* 页眉 */
 .logo {
-  width: 100px;
-  height: 40px;
-  margin-top: 5px;
+  width: 6.25em;
+  height: 2.5em;
+  margin-top: 0.3125em;
   float: left;
-  margin-left: 100px;
+  margin-left: 6.25em;
   color: blue;
 }
 .logo img {
@@ -64,16 +64,16 @@ export default {
   list-style-type: none;
   float: left;
   width: 120px;
-  height: 55px;
-  line-height: 55px;
+  height: 3.4375em;
+  line-height: 3.4375em;
   color: #aaa;
-  font-size: 14px;
+  font-size: 0.875em;
 }
 .msg {
-  margin-left: 5px;
+  margin-left: 0.3125em;
 }
 .user-name {
-  margin: 0 5px;
+  margin: 0 0.3125em;
   color: #5cadff;
 }
 </style>

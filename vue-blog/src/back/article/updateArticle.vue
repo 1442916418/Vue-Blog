@@ -125,6 +125,6 @@ export default {
 
 <style lang="less" scoped>
 .updateArticle-box {
-  padding: 100px 20%;
+  padding: 6.25em 20%;
 }
 </style>
