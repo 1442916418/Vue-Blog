@@ -15,7 +15,7 @@
       </FormItem>
       <FormItem :style="{'text-align':'center'}">
         <Button type="primary" @click="handleSubmit(userData)">注册</Button>
-        <Button type="text" ghost :style="{'margin-left':'20px'}">重置</Button>
+        <Button type="text" ghost :style="{'margin-left':'20px'}" @click="cancel">重置</Button>
       </FormItem>
       <div class="bottom-home">
         <Button type="text" ghost @click="()=>{$router.push('/')}">返回登录</Button>
@@ -53,7 +53,7 @@ export default {
           }
         ],
         name: [
-          { required: true, message: "个人昵称不能为空", trigger: "blur" },
+          { required: true, message: "个性昵称不能为空", trigger: "blur" },
           {
             pattern: /^[\u4E00-\u9FA50-9a-zA-Z_\s]{3,10}$/,
             message: "必须 3-10个中文字符、英文字母、数字及下划线",
@@ -61,7 +61,7 @@ export default {
           }
         ],
         subTitle: [
-          { required: true, message: "个人描述不能为空", trigger: "blur" },
+          { required: true, message: "个性描述不能为空", trigger: "blur" },
           {
             pattern: /^[\u4E00-\u9FA50-9a-zA-Z_\s]{0,20}$/,
             message: "必须 0-20个中文字符、英文字母、数字及下划线",
@@ -72,6 +72,11 @@ export default {
     };
   },
   methods: {
+    // 重置
+    cancel() {
+      this.userData = {};
+    },
+    // 注册
     handleSubmit(r) {
       console.log(r);
       this.$refs[r].validate(valid => {
@@ -89,7 +94,7 @@ export default {
               { emulateJSON: true }
             )
             .then(resp => {
-              console.log(resp);
+              // console.log(resp);
               if (resp.data === "success") {
                 this.$Message.success("注册成功");
                 this.$router.push("/");

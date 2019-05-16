@@ -149,6 +149,7 @@ export default {
       }
     }
     pre {
+      overflow-x: auto;
       margin: 0.625em 0;
       padding: 1.25em;
       border: none;

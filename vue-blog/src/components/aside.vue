@@ -130,7 +130,7 @@ export default {
 
 <style scoped>
 .aside-box {
-  margin: 1.25em;
+  margin: 4em 1.25em;
 }
 .calendar-box {
   width: 100%;

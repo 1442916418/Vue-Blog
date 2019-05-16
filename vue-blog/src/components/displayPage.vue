@@ -5,15 +5,15 @@
       <myheader></myheader>
     </el-header>
     <el-row>
-      <el-col :xs="24" :sm="8" :md="6" :lg="6" :xl="6">
-        <el-aside class="aside" width="100%">
-          <myAside></myAside>
-        </el-aside>
-      </el-col>
       <el-col :xs="24" :sm="16" :md="18" :lg="18" :xl="18">
         <el-main class="main">
           <myMain></myMain>
         </el-main>
+      </el-col>
+      <el-col :xs="24" :sm="8" :md="6" :lg="6" :xl="6">
+        <el-aside class="aside" width="100%">
+          <myAside></myAside>
+        </el-aside>
       </el-col>
     </el-row>
     <el-footer class="footer">
@@ -39,8 +39,7 @@ export default {
     myMain: Main,
     myFooter: Footer,
     myGithub: MyGithub
-  },
-  
+  }
 };
 </script>
 
